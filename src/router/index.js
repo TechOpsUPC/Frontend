@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory} from "vue-router";
-/*
-import LoginComponent from "../login/pages/login.component.vue";
-import RegisterComponent from "../login/pages/register.component.vue";
-import MoodComponent from "../login/pages/mood.component.vue";
-*/
+
+import LoginComponent from "../users/pages/login.component.vue";
+import RegisterComponent from "../users/pages/register.component.vue";
+import MoodComponent from "../users/pages/mood.component.vue";
+
 
 
 import MainPageComponent from "../public/pages/main-page.component.vue";
@@ -14,6 +14,7 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 
 import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
+import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 
 
 const router = createRouter({
@@ -25,7 +26,7 @@ const router = createRouter({
             children: [
                 {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
-                {path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
+                //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
             ]
         },
         {
