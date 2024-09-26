@@ -15,6 +15,7 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
+import EventsComponent from "../events/pages/events.component.vue";
 
 
 const router = createRouter({
@@ -26,6 +27,7 @@ const router = createRouter({
             children: [
                 {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
+                {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
                 //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
             ]
         },
