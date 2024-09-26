@@ -1,13 +1,26 @@
 ﻿<template>
-  <pv-card>
-    <template #title>Simple Card {{eventItem.title}}</template>
+  <pv-card style="width: 25rem; overflow: hidden">
+    <template #header>
+      <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+    </template>
+    <template #title>{{eventItem.title}}</template>
+
+    <template #subtitle>
+      <div style="width: fit-content; margin-left: auto; ">
+      <pv-button  label="INFO" class="w-full" />
+      </div>
+    </template>
+
     <template #content>
       <p class="m-0">
         {{eventItem.description}}
       </p>
     </template>
+    <template #footer>
+
+    </template>
   </pv-card>
-  equisde
+
 </template>
 
 <script >
