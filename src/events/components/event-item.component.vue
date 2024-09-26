@@ -7,7 +7,7 @@
 
     <template #subtitle>
       <div style="width: fit-content; margin-left: auto; ">
-      <pv-button  label="INFO" class="w-full" />
+      <pv-button  label="INFO" class="w-full" style="background-color: black; border-color: black"/>
       </div>
     </template>
 
