@@ -1,7 +1,7 @@
 ﻿<template>
   <pv-card style="width: 25rem; overflow: hidden">
     <template #header>
-      <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+      <img alt="user header" src="https://img.freepik.com/vector-gratis/cartel-realista-cine-cubo-iluminado-bebida-palomitas-maiz-entradas-carrete-gafas-3d-sobre-fondo-azul-ilustracion-vector-cintas_1284-77070.jpg" />
     </template>
     <template #title>{{eventItem.title}}</template>
 
