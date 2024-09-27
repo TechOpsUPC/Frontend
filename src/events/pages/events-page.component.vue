@@ -7,7 +7,7 @@ import EventList from "../components/event-list.component.vue";
 
 export default {
   name: "Events-page",
-  components: { EventList},
+  components: {EventList},
   data() {
     return {
       searchQuery: "", // Campo de búsqueda
@@ -82,10 +82,19 @@ export default {
     <ul>
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
+    <pv-scroll-panel
+        style="width: 100%; height: 600px; solid-color: black"
+        :dt="{
+        bar: {
+            background: '{primary.color}'
+        }
+    }"
+    >
+      <div id="list">
+        <event-list :event-list="events"></event-list>
+      </div>
+    </pv-scroll-panel>
 
-    <div id="list">
-       <event-list :event-list="events"></event-list>/
-    </div>
 
 
 
