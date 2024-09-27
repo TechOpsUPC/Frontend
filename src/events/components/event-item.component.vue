@@ -8,7 +8,7 @@
     <template #subtitle>
       <div style="width: fit-content; margin-left: auto; ">
         <router-link to="/event">
-          <pv-button  Label="INFO" class="w-full" style="background-color: black; border-color: black"/>
+          <pv-button  label="INFO" class="w-full" style="background-color: black; border-color: black"/>
         </router-link>
       </div>
     </template>
