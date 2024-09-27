@@ -21,6 +21,8 @@ import Select from "primevue/select";
 import DatePicker from "primevue/datepicker";
 import Splitter from "primevue/splitter";
 import SplitterPanel from "primevue/splitterpanel";
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
 
 const app = createApp(App)
 
@@ -43,6 +45,8 @@ app.component('pv-card', Card)
     .component('pv-datepicker', DatePicker)
     .component('pv-splitter', Splitter)
     .component('pv-splitter-panel', SplitterPanel)
+    .component('pv-icon-field', IconField)
+    .component('pv-input-icon', InputIcon)
 
 
 app.mount('#app')

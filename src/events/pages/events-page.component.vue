@@ -2,12 +2,12 @@
 
 import { ref } from 'vue';
 import EventList from "../components/event-list.component.vue";
-import EventItemComponent from "../components/event-item.component.vue";
 
-const value = ref(null);
+
+
 export default {
   name: "Events-page",
-  components: {EventList},
+  components: { EventList},
   data() {
     return {
       searchQuery: "", // Campo de búsqueda
@@ -71,6 +71,12 @@ export default {
         placeholder="Search..."
         @input="filterItems"
     />
+    <div >
+      <pv-icon-field style="margin-left: 84%; ">
+        <pv-input-icon class="pi pi-search" />
+        <pv-input-text  placeholder="Search" />
+      </pv-icon-field>
+    </div>
 
         <!-- Lista de resultados filtrados -->
     <ul>
