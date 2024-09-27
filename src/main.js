@@ -23,6 +23,7 @@ import Splitter from "primevue/splitter";
 import SplitterPanel from "primevue/splitterpanel";
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
+import ScrollPanel from 'primevue/scrollpanel';
 
 const app = createApp(App)
 
@@ -47,6 +48,7 @@ app.component('pv-card', Card)
     .component('pv-splitter-panel', SplitterPanel)
     .component('pv-icon-field', IconField)
     .component('pv-input-icon', InputIcon)
+    .component('pv-scroll-panel', ScrollPanel)
 
 
 app.mount('#app')

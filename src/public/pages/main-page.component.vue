@@ -26,6 +26,7 @@ export default {
         </router-link>
 
         <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments"></pv-button>
+
         <router-link to="/events">
           <pv-button class="sidebar-button" label="Eventos" icon="pi pi-calendar"></pv-button>
         </router-link>
