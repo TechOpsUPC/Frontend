@@ -15,6 +15,8 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
+import EventsComponent from "../events/pages/events-page.component.vue";
+import EventPage from "../events/pages/event-page.component.vue";
 
 
 const router = createRouter({
@@ -26,9 +28,12 @@ const router = createRouter({
             children: [
                 {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
-                //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
+                {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
+                {path: '/event', component: EventPage, meta: {title: 'Evento'}}
             ]
         },
+                //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
+
         {
             path: '/register',
             component: AuthLayoutComponent,
