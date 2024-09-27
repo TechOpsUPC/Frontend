@@ -64,13 +64,17 @@ export default {
   </div>
 
   <div>
-    <!-- Barra de búsqueda -->
-    <input
+    <!-- Barra de búsqueda
+     <input
         type="text"
         v-model="searchQuery"
         placeholder="Search..."
         @input="filterItems"
     />
+    -->
+
+
+
     <div >
       <pv-icon-field style="margin-left: 84%; ">
         <pv-input-icon class="pi pi-search" />
@@ -78,10 +82,15 @@ export default {
       </pv-icon-field>
     </div>
 
-        <!-- Lista de resultados filtrados -->
-    <ul>
+        <!-- Lista de resultados filtrados
+         <ul>
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
+        -->
+
+
+
+
     <pv-scroll-panel
         style="width: 100%; height: 600px; solid-color: black"
         :dt="{
