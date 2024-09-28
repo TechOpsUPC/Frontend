@@ -5,7 +5,8 @@ import RegisterComponent from "../login/pages/register.component.vue";
 import MoodComponent from "../login/pages/mood.component.vue";
 */
 
-
+import MainWelcomePage from '../public/pages/main-welcome-page.vue';
+import mainPerfilPage from "@/public/pages/main-perfil-page.vue";
 import MainPageComponent from "../public/pages/main-page.component.vue";
 /*
 import ListasComponent from "../public/pages/listas.component.vue";
@@ -23,7 +24,8 @@ const router = createRouter({
             path: '/main',
             component: MainPageComponent,
             children: [
-                {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
+                {path: '/home', component: MainWelcomePage, meta: {title: 'Home'}},
+                {path: '/perfil', component: mainPerfilPage, meta: {title: 'Perfil'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
                 {path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
             ]
