@@ -64,7 +64,7 @@ localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
 
 </script>
 
-<style>
+<style scoped>
 /* Estilos para las cards */
 .card-grid {
   display: flex;
