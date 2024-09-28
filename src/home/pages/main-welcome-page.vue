@@ -5,7 +5,7 @@ export default {
   name: "MainWelcomePage",
   data() {
     return {
-      userName: "Alonso",
+      user: JSON.parse(localStorage.getItem('currentUser')),
       recommendedMovies: [],
       lastSeenMovies: [],
       specialRecommendation: {},
@@ -48,7 +48,7 @@ export default {
 
 <template>
   <div class="welcome-page">
-    <h1 class="tittleMain">Bienvenido, {{ userName }}</h1>
+    <h1 class="tittleMain">Bienvenido, {{ user.name }}</h1>
 
     <div class="columns">
       <div class="left-column">
