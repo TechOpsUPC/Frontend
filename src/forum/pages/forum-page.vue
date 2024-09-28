@@ -2,6 +2,7 @@
 import movieService from '../../shared/services/movieService.js';
 
 export default {
+  name: 'ForumPage',
   data() {
     return {
       forums: [],

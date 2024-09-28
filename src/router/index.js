@@ -21,6 +21,7 @@ import RecentContent from '../Explorer/pages/recent-content.component.vue';
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 import EventsComponent from "../events/pages/events-page.component.vue";
 import EventPage from "../events/pages/event-page.component.vue";
+import ForumPage from "../forum/pages/forum-page.vue";
 
 
 const router = createRouter({
@@ -36,6 +37,7 @@ const router = createRouter({
 
                 {path: '/home', component: MainWelcomePage, meta: {title: 'Home'}},
                 {path: '/perfil', component: MainPerfilPage, meta: {title: 'Perfil'}},
+                {path:'/forum', component: ForumPage, meta: {title: 'Foro'}},
 
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
                 {path: '/event', component: EventPage, meta: {title: 'Evento'}},
