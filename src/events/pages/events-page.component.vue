@@ -12,16 +12,17 @@ export default {
   components: {EventList},
   data: function () {
     return {
+
       events: [],
       errors: [],
       eventApiService: new EventApiService(),
       searchQuery: "", // Campo de búsqueda
-      items: [
+     /* items: [
         {id: 1, name: 'Goku'},
         {id: 2, name: 'Vegeta'},
         {id: 3, name: 'Gohan'}
         // Agrega más elementos según tus datos
-      ],
+      ],*/
       filteredItems: [],
     }
   },
@@ -97,22 +98,24 @@ export default {
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
         -->
+    <div class="scroll-panel">
+      <div class="content">
 
-
-
-
-    <pv-scroll-panel
-        style="width: 100%; height: 600px; solid-color: black"
-        :dt="{
-        bar: {
-            background: '{primary.color}'
-        }
-    }"
-    >
-      <div id="list">
-        <event-list :event-list="events"></event-list>
+        <div id="list">
+          <event-list :event-list="events"></event-list>
+        </div>
       </div>
-    </pv-scroll-panel>
+    </div>
+
+    <div class="scroll-panel">
+      <div class="content">
+
+        <div id="list">
+          <event-list :event-list="events"></event-list>
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -127,4 +130,43 @@ export default {
   justify-content: center;
   gap: 20px;
 }
+::-webkit-scrollbar-thumb {
+
+  background-color: #00FF01;
+  color: #00FF01;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.scroll-panel {
+  width: fit-content;
+  height: 778px;
+  overflow-y: auto; /* Activa el scroll vertical */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Estilos del Scrollbar */
+.scroll-panel::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+}
+
+.scroll-panel::-webkit-scrollbar-thumb {
+  background: #7e7c7c;
+  border: solid 3px #e6e6e6;
+  border-radius: 7px;
+}
+
+.scroll-panel::-webkit-scrollbar-track {
+  background: #e6e6e6;
+  border-left: 2px solid #dadada;
+}
+
+.scroll-panel::-webkit-scrollbar-thumb:hover {
+  background-color: black; /* Color del thumb cuando está en hover */
+}
+
+.content {
+  height: 1000px; /* Asegura que el contenido sea lo suficientemente grande para que aparezca el scroll */
+}
+
 </style>
