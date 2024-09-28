@@ -1,9 +1,29 @@
 <script>
 
 export default {
-  name: "main-page",
-  components: {},
-}
+  data() {
+    return {
+      explorarExpanded: false,
+      listasExpanded: false,
+    };
+  },
+  methods: {
+    goToProfile() {
+      this.$router.push("/perfil");
+    },
+    logout() {
+      this.$router.push("/login");
+      localStorage.clear();
+      console.log("Salir de la sesión");
+    },
+    toggleExplorar(state) {
+      this.explorarExpanded = state;
+    },
+    toggleListas(state) {
+      this.listasExpanded = state;
+    },
+  },
+};
 </script>
 
 <template>
@@ -17,13 +37,31 @@ export default {
           <pv-button class="sidebar-button" label="Home" icon="pi pi-home"></pv-button>
         </router-link>
 
-        <router-link to="/explorer">
-          <pv-button class="sidebar-button" label="Explorar" icon="pi pi-search"></pv-button>
-        </router-link>
+        <pv-button @mouseenter="toggleExplorar(true)"
+                   @mouseleave="toggleExplorar(false)"
+                   class="sidebar-button" label="Explorar" icon="pi pi-search">
+          <ul v-if="explorarExpanded">
+            <pv-button class="sidebar-button" >
+              <router-link to="/explorar/contenido-disponible">Contenido disponible</router-link>
+            </pv-button>
+            <pv-button class="sidebar-button">
+              <router-link to="/explorar/contenido-reciente">Contenido reciente</router-link>
+            </pv-button>
+          </ul>
+        </pv-button>
 
-        <router-link to="/list">
-          <pv-button class="sidebar-button" label="Listas" icon="pi pi-list"></pv-button>
-        </router-link>
+        <pv-button @mouseenter="toggleListas(true)"
+                   @mouseleave="toggleListas(false)"
+                   class="sidebar-button" label="Listas" icon="pi pi-list">
+          <ul v-if="listasExpanded">
+            <pv-button class="sidebar-button" >
+              <router-link to="/listas/favoritos">Favoritos</router-link>
+            </pv-button>
+            <pv-button class="sidebar-button" >
+              <router-link to="/listas/ver-mas-tarde">Ver más tarde</router-link>
+            </pv-button>
+          </ul>
+        </pv-button>
 
         <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments"></pv-button>
 
@@ -39,7 +77,7 @@ export default {
             <pv-button icon="pi pi-user" class="bottom-button"></pv-button>
           </router-link>
           <span class="spacer"></span>
-          <pv-button icon="pi pi-sign-out" class="bottom-button"></pv-button>
+          <pv-button icon="pi pi-sign-out" class="bottom-button" @click="logout"></pv-button>
         </div>
 
       </div>
@@ -65,6 +103,7 @@ export default {
   border-color: #eeb4b4;
   color: black;
   font-size: 22px;
+  margin: 0 auto;
 }
 .sidebar-button:hover {
   background-color: #d04c4c !important;
