@@ -14,8 +14,8 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
 
-import AvailableContent from '../Explorer/pages/available-content.component.vue';
-import RecentContent from '../Explorer/pages/recent-content.component.vue';
+import AvailableContent from '../explorer/pages/available-content.component.vue';
+import RecentContent from '../explorer/pages/recent-content.component.vue';
 
 
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
