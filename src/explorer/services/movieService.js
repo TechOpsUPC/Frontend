@@ -11,9 +11,9 @@ const apiClient = axios.create({
 
 export default {
     getMovies() {
-        return apiClient.get('/movies');
+        return apiClient.get('/content');
     },
     getRecentMovies() {
-        return apiClient.get('/movies-recent');
+        return apiClient.get('/content-recent');
     }
 };
