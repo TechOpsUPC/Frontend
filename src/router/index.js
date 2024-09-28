@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory} from "vue-router";
-/*
-import LoginComponent from "../login/pages/login.component.vue";
-import RegisterComponent from "../login/pages/register.component.vue";
-import MoodComponent from "../login/pages/mood.component.vue";
-*/
+
+import LoginComponent from "../users/pages/login.component.vue";
+import RegisterComponent from "../users/pages/register.component.vue";
+import MoodComponent from "../users/pages/mood.component.vue";
+
 
 import MainWelcomePage from '../home/pages/main-welcome-page.vue';
 import MainPerfilPage from "../home/pages/main-perfil-page.vue";
@@ -15,6 +15,9 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 
 import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
+import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
+import EventsComponent from "../events/pages/events-page.component.vue";
+import EventPage from "../events/pages/event-page.component.vue";
 
 
 const router = createRouter({
@@ -27,9 +30,12 @@ const router = createRouter({
                 {path: '/home', component: MainWelcomePage, meta: {title: 'Home'}},
                 {path: '/perfil', component: MainPerfilPage, meta: {title: 'Perfil'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
-                {path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
+                {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
+                {path: '/event', component: EventPage, meta: {title: 'Evento'}}
             ]
         },
+                //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
+
         {
             path: '/register',
             component: AuthLayoutComponent,
