@@ -1,5 +1,5 @@
 <script>
-import movieService from '../../Explorer/services/movieService';
+import movieService from '../../shared/services/movieService.js';
 
 export default {
   name: "MainWelcomePage",
