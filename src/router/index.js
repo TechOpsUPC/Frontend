@@ -5,14 +5,15 @@ import RegisterComponent from "../users/pages/register.component.vue";
 import MoodComponent from "../users/pages/mood.component.vue";
 
 
-
+import MainWelcomePage from '../home/pages/main-welcome-page.vue';
+import MainPerfilPage from "../home/pages/main-perfil-page.vue";
 import MainPageComponent from "../public/pages/main-page.component.vue";
 /*
 import ListasComponent from "../public/pages/listas.component.vue";
 import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
-import HomeComponent from "../home/pages/home.component.vue";
+//import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 import EventsComponent from "../events/pages/events-page.component.vue";
@@ -26,7 +27,8 @@ const router = createRouter({
             path: '/main',
             component: MainPageComponent,
             children: [
-                {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
+                {path: '/home', component: MainWelcomePage, meta: {title: 'Home'}},
+                {path: '/perfil', component: MainPerfilPage, meta: {title: 'Perfil'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
                 {path: '/event', component: EventPage, meta: {title: 'Evento'}}

@@ -35,7 +35,9 @@ export default {
         <span class="spacer"></span>
 
         <div class="bottom-options">
-          <pv-button icon="pi pi-user" class="bottom-button"></pv-button>
+          <router-link to="/perfil">
+            <pv-button icon="pi pi-user" class="bottom-button"></pv-button>
+          </router-link>
           <span class="spacer"></span>
           <pv-button icon="pi pi-sign-out" class="bottom-button"></pv-button>
         </div>
