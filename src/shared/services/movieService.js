@@ -15,5 +15,8 @@ export default {
     },
     getRecentMovies() {
         return apiClient.get('/content-recent');
+    },
+    getForum() {
+        return apiClient.get('/forums');
     }
 };
