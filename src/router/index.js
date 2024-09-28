@@ -14,6 +14,10 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 
 import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
+
+import AvailableContent from '../Explorer/pages/available-content.component.vue';
+import RecentContent from '../Explorer/pages/recent-content.component.vue';
+
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 
 
@@ -50,7 +54,9 @@ const router = createRouter({
                 {path: '/mood', component: MoodComponent, meta: {title: 'Mood'}},
             ]
         },
-        { path: '/:pathMatch(.*)*', redirect: '/login' }
+        { path: '/:pathMatch(.*)*', redirect: '/login' },
+        { path: '/explorar/contenido-disponible', component: AvailableContent },
+        { path: '/explorar/contenido-reciente', component: RecentContent }
 
 
 
