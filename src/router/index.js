@@ -13,7 +13,6 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
 import HomeComponent from "../home/pages/home.component.vue";
-import ExplorarComponent from "../explorer/pages/explorar.component.vue";
 
 import AvailableContent from '../Explorer/pages/available-content.component.vue';
 import RecentContent from '../Explorer/pages/recent-content.component.vue';
@@ -31,9 +30,12 @@ const router = createRouter({
             component: MainPageComponent,
             children: [
                 {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
-                {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
+                { path: '/explorar/contenido-disponible', component: AvailableContent },
+                { path: '/explorar/contenido-reciente', component: RecentContent },
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
-                {path: '/event', component: EventPage, meta: {title: 'Evento'}}
+                {path: '/event', component: EventPage, meta: {title: 'Evento'}},
+                { path: '/:pathMatch(.*)*', redirect: '/login' },
+
             ]
         },
                 //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
@@ -59,9 +61,7 @@ const router = createRouter({
                 {path: '/mood', component: MoodComponent, meta: {title: 'Mood'}},
             ]
         },
-        { path: '/:pathMatch(.*)*', redirect: '/login' },
-        { path: '/explorar/contenido-disponible', component: AvailableContent },
-        { path: '/explorar/contenido-reciente', component: RecentContent }
+
 
 
 
