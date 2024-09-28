@@ -14,7 +14,7 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
 
-import HomeComponent from "../home/pages/home.component.vue";
+
 
 import AvailableContent from '../Explorer/pages/available-content.component.vue';
 import RecentContent from '../Explorer/pages/recent-content.component.vue';
@@ -33,7 +33,7 @@ const router = createRouter({
             component: MainPageComponent,
             children: [
 
-                {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
+               // {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 { path: '/explorar/contenido-disponible', component: AvailableContent },
                 { path: '/explorar/contenido-reciente', component: RecentContent },
 
