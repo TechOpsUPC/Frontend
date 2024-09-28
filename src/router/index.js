@@ -14,8 +14,6 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
 
-
-
 import AvailableContent from '../Explorer/pages/available-content.component.vue';
 import RecentContent from '../Explorer/pages/recent-content.component.vue';
 
@@ -23,6 +21,7 @@ import RecentContent from '../Explorer/pages/recent-content.component.vue';
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 import EventsComponent from "../events/pages/events-page.component.vue";
 import EventPage from "../events/pages/event-page.component.vue";
+import ForumPage from "../forum/pages/forum-page.vue";
 
 
 const router = createRouter({
@@ -33,12 +32,12 @@ const router = createRouter({
             component: MainPageComponent,
             children: [
 
-               // {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 { path: '/explorar/contenido-disponible', component: AvailableContent },
                 { path: '/explorar/contenido-reciente', component: RecentContent },
 
                 {path: '/home', component: MainWelcomePage, meta: {title: 'Home'}},
                 {path: '/perfil', component: MainPerfilPage, meta: {title: 'Perfil'}},
+                {path:'/forum', component: ForumPage, meta: {title: 'Foro'}},
 
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
                 {path: '/event', component: EventPage, meta: {title: 'Evento'}},

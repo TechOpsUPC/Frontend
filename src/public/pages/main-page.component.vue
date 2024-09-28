@@ -63,7 +63,10 @@ export default {
           </ul>
         </pv-button>
 
-        <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments"></pv-button>
+        <router-link to="/forum">
+          <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments">
+          </pv-button>
+        </router-link>
 
         <router-link to="/events">
           <pv-button class="sidebar-button" label="Eventos" icon="pi pi-calendar"></pv-button>
