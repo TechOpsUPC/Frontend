@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class Citizen {
     id;
+    lists;
 
     constructor(name, lastName, userName,birthDate, phone, type, email, password,membership) {
         this.id=uuidv4();
@@ -14,5 +15,8 @@ export class Citizen {
         this.email = email;
         this.password = password;
         this.membership = membership;
+        this.lists = {
+            favorites: [],
+            watchLater: []
     };
-}
+}}
