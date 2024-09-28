@@ -13,7 +13,7 @@ import ListasComponent from "../public/pages/listas.component.vue";
 import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
-import HomeComponent from "../home/pages/home.component.vue";
+//import HomeComponent from "../home/pages/home.component.vue";
 import ExplorarComponent from "../explorer/pages/explorar.component.vue";
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
 import EventsComponent from "../events/pages/events-page.component.vue";
