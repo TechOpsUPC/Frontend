@@ -89,6 +89,7 @@ export default {
   position: relative;
   align-items: flex-start;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 .movie-details {
