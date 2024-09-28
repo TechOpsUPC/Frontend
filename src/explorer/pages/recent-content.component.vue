@@ -1,5 +1,5 @@
 <script>
-import movieService from '../services/movieService.js';
+import movieService from '../../shared/services/movieService.js';
 
 export default {
   data() {
