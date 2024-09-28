@@ -1,9 +1,27 @@
 <script>
 
 export default {
-  name: "main-page",
-  components: {},
-}
+  data() {
+    return {
+      explorarExpanded: false,
+      listasExpanded: false,
+    };
+  },
+  methods: {
+    goToProfile() {
+      this.$router.push("/perfil");
+    },
+    logout() {
+      console.log("Salir de la sesión");
+    },
+    toggleExplorar(state) {
+      this.explorarExpanded = state;
+    },
+    toggleListas(state) {
+      this.listasExpanded = state;
+    },
+  },
+};
 </script>
 
 <template>
@@ -17,13 +35,30 @@ export default {
           <pv-button class="sidebar-button" label="Home" icon="pi pi-home"></pv-button>
         </router-link>
 
-        <router-link to="/explorer">
-          <pv-button class="sidebar-button" label="Explorar" icon="pi pi-search"></pv-button>
-        </router-link>
+        <li
+            @mouseenter="toggleExplorar(true)"
+            @mouseleave="toggleExplorar(false)"
+        >
+          <router-link to="/explorar">Explorar</router-link>
+          <ul v-if="explorarExpanded">
+            <li>
+              <router-link to="/explorar/contenido-disponible">Contenido disponible</router-link>
+            </li>
+            <li>
+              <router-link to="/explorar/contenido-reciente">Contenido reciente</router-link>
+            </li>
+          </ul>
+        </li>
 
-        <router-link to="/list">
-          <pv-button class="sidebar-button" label="Listas" icon="pi pi-list"></pv-button>
-        </router-link>
+        <router-link to="/list">Listas</router-link>
+        <ul v-if="listasExpanded">
+            <li>
+              <router-link to="/listas/favoritos">Favoritos</router-link>
+            </li>
+            <li>
+              <router-link to="/listas/ver-mas-tarde">Ver más tarde</router-link>
+            </li>
+          </ul>
 
         <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments"></pv-button>
 
