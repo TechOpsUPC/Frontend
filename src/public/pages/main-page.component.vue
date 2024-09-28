@@ -12,6 +12,8 @@ export default {
       this.$router.push("/perfil");
     },
     logout() {
+      this.$router.push("/login");
+      localStorage.clear();
       console.log("Salir de la sesión");
     },
     toggleExplorar(state) {
@@ -35,30 +37,31 @@ export default {
           <pv-button class="sidebar-button" label="Home" icon="pi pi-home"></pv-button>
         </router-link>
 
-        <li
-            @mouseenter="toggleExplorar(true)"
-            @mouseleave="toggleExplorar(false)"
-        >
-          <router-link to="/explorar">Explorar</router-link>
+        <pv-button @mouseenter="toggleExplorar(true)"
+                   @mouseleave="toggleExplorar(false)"
+                   class="sidebar-button" label="Explorar" icon="pi pi-search">
           <ul v-if="explorarExpanded">
-            <li>
+            <pv-button class="sidebar-button" >
               <router-link to="/explorar/contenido-disponible">Contenido disponible</router-link>
-            </li>
-            <li>
+            </pv-button>
+            <pv-button class="sidebar-button">
               <router-link to="/explorar/contenido-reciente">Contenido reciente</router-link>
-            </li>
+            </pv-button>
           </ul>
-        </li>
+        </pv-button>
 
-        <router-link to="/list">Listas</router-link>
-        <ul v-if="listasExpanded">
-            <li>
+        <pv-button @mouseenter="toggleListas(true)"
+                   @mouseleave="toggleListas(false)"
+                   class="sidebar-button" label="Listas" icon="pi pi-list">
+          <ul v-if="listasExpanded">
+            <pv-button class="sidebar-button" >
               <router-link to="/listas/favoritos">Favoritos</router-link>
-            </li>
-            <li>
+            </pv-button>
+            <pv-button class="sidebar-button" >
               <router-link to="/listas/ver-mas-tarde">Ver más tarde</router-link>
-            </li>
+            </pv-button>
           </ul>
+        </pv-button>
 
         <pv-button class="sidebar-button" label="Foros" icon="pi pi-comments"></pv-button>
 
@@ -72,7 +75,7 @@ export default {
         <div class="bottom-options">
           <pv-button icon="pi pi-user" class="bottom-button"></pv-button>
           <span class="spacer"></span>
-          <pv-button icon="pi pi-sign-out" class="bottom-button"></pv-button>
+          <pv-button icon="pi pi-sign-out" class="bottom-button" @click="logout"></pv-button>
         </div>
 
       </div>
@@ -98,6 +101,7 @@ export default {
   border-color: #eeb4b4;
   color: black;
   font-size: 22px;
+  margin: 0 auto;
 }
 .sidebar-button:hover {
   background-color: #d04c4c !important;
