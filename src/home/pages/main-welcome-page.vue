@@ -27,7 +27,9 @@ export default {
   methods: {
     fetchRecommendedMovies() {
       movieService.getMovies().then(response => {
-        this.recommendedMovies = response.data.slice(0, 5);
+        for(let i = 0; i < 5; i++) {
+          this.recommendedMovies.push(response.data[Math.floor(Math.random() * response.data.length)]);
+        }
       });
     },
     fetchLastSeenMovies() {
@@ -55,7 +57,7 @@ export default {
           <h3 class="tittleRecomendation">Recomendado para ti</h3>
           <ul>
             <li v-for="movie in recommendedMovies" :key="movie.id">
-              {{ movie.title }} - {{ movie.genre }}
+              {{ movie.title }} - {{ movie.type }}
             </li>
           </ul>
         </div>
@@ -64,7 +66,7 @@ export default {
           <h3>Último contenido visto</h3>
           <ul>
             <li v-for="movie in lastSeenMovies" :key="movie.id">
-              {{ movie.title }} - {{ movie.genre }}
+              {{ movie.title }} - {{ movie.category }}
             </li>
           </ul>
         </div>
