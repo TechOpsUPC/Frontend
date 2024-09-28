@@ -1,20 +1,25 @@
 <script>
 export default {
   name: "MainPerfilPage",
+  data() {
+    return {
+      user: JSON.parse(localStorage.getItem("currentUser"))
+    }
+  }
 };
 </script>
 
 <template>
   <div class="perfil-page">
-    <h1>Hola, Juan Pérez</h1>
+    <h1>Hola, {{user.name}}</h1>
 
     <div class="perfil-info">
       <img class="perfil-img" src="https://via.placeholder.com/100" alt="Foto de perfil" />
       <div class="perfil-details">
-        <p><i class="icon">📅</i> Fecha de Nacimiento: 01/01/1990</p>
-        <p><i class="icon">📱</i> Número de celular: +123456789</p>
-        <p><i class="icon">📧</i> Correo electrónico: juan.perez@example.com</p>
-        <p><i class="icon">💼</i> Trabajo/Estudio: Desarrollador Web</p>
+        <p><i class="icon">📅</i> Fecha de Nacimiento: {{user.birthDate}}</p>
+        <p><i class="icon">📱</i> Número de celular: {{user.phone}}</p>
+        <p><i class="icon">📧</i> Correo electrónico: {{user.email}}</p>
+        <p><i class="icon">💼</i> Tipo de usuario: {{user.type}} </p>
       </div>
     </div>
 
