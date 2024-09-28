@@ -55,10 +55,10 @@ export default {
                    class="sidebar-button" label="Listas" icon="pi pi-list">
           <ul v-if="listasExpanded">
             <pv-button class="sidebar-button" >
-              <router-link to="/listas/favoritos">Favoritos</router-link>
+              <router-link to="/list">Favoritos</router-link>
             </pv-button>
             <pv-button class="sidebar-button" >
-              <router-link to="/listas/ver-mas-tarde">Ver más tarde</router-link>
+              <router-link to="/list">Ver más tarde</router-link>
             </pv-button>
           </ul>
         </pv-button>
