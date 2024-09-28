@@ -2,55 +2,66 @@
 
 import { ref } from 'vue';
 import EventList from "../components/event-list.component.vue";
+import {EventApiService} from "../services/event-api.service.js";
+import {EventEntity} from "../model/event/event.entity.js";
 
 
 
 export default {
   name: "Events-page",
   components: {EventList},
-  data() {
+  data: function () {
     return {
-      searchQuery: "", // Campo de búsqueda
-      items: [
-        { id: 1, name: 'Goku' },
-        { id: 2, name: 'Vegeta' },
-        { id: 3, name: 'Gohan' }
-        // Agrega más elementos según tus datos
-      ],
-      filteredItems: [],
-      events: [
-        {
-          eventId: "65",
-          contentId: "45",
-          title: "Event for Call me movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-05-05",
-          address: "av.primavera 123",
-          creatorId: "2"
-        },
-        {
-          eventId: "456",
-          contentId: "98",
-          title: "Event for Impossile movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-02-01",
-          address: "av.primavera 321",
-          creatorId: "654"
-        }
-      ]
 
-    };
+      events: [],
+      errors: [],
+      eventApiService: new EventApiService(),
+      searchQuery: "", // Campo de búsqueda
+     /* items: [
+        {id: 1, name: 'Goku'},
+        {id: 2, name: 'Vegeta'},
+        {id: 3, name: 'Gohan'}
+        // Agrega más elementos según tus datos
+      ],*/
+      filteredItems: [],
+    }
   },
   methods: {
     filterItems() {
       this.filteredItems = this.items.filter(item =>
           item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
+    },
+
+    buildEventListFromResponsiveData(events){
+      return events.map(event =>
+              new EventEntity(
+                  event.eventId,
+                  event.contentId,
+                  event.title,
+                  event.description,
+                  event.date,
+                  event.address,
+                  event.creatorId,
+              )
+      )
     }
   },
   created() {
     // Inicializar la lista filtrada con todos los items
     this.filteredItems = this.items;
+
+    this.eventApiService.getEvent()
+        .then(response =>{
+          let dataEvents = response.data;
+          console.log(dataEvents);
+          console.log(response.data.results);
+          this.events = this.buildEventListFromResponsiveData(dataEvents);
+          console.log(this.events);
+        })
+        .catch(e =>{
+          this.errors.push(e);
+        });
   }
 
 };
@@ -87,22 +98,24 @@ export default {
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
         -->
+    <div class="scroll-panel">
+      <div class="content">
 
-
-
-
-    <pv-scroll-panel
-        style="width: 100%; height: 600px; solid-color: black"
-        :dt="{
-        bar: {
-            background: '{primary.color}'
-        }
-    }"
-    >
-      <div id="list">
-        <event-list :event-list="events"></event-list>
+        <div id="list">
+          <event-list :event-list="events"></event-list>
+        </div>
       </div>
-    </pv-scroll-panel>
+    </div>
+
+    <div class="scroll-panel">
+      <div class="content">
+
+        <div id="list">
+          <event-list :event-list="events"></event-list>
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -117,4 +130,43 @@ export default {
   justify-content: center;
   gap: 20px;
 }
+::-webkit-scrollbar-thumb {
+
+  background-color: #00FF01;
+  color: #00FF01;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.scroll-panel {
+  width: fit-content;
+  height: 778px;
+  overflow-y: auto; /* Activa el scroll vertical */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Estilos del Scrollbar */
+.scroll-panel::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+}
+
+.scroll-panel::-webkit-scrollbar-thumb {
+  background: #7e7c7c;
+  border: solid 3px #e6e6e6;
+  border-radius: 7px;
+}
+
+.scroll-panel::-webkit-scrollbar-track {
+  background: #e6e6e6;
+  border-left: 2px solid #dadada;
+}
+
+.scroll-panel::-webkit-scrollbar-thumb:hover {
+  background-color: black; /* Color del thumb cuando está en hover */
+}
+
+.content {
+  height: 1000px; /* Asegura que el contenido sea lo suficientemente grande para que aparezca el scroll */
+}
+
 </style>
