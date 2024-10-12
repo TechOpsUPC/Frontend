@@ -54,10 +54,7 @@ export default {
     this.eventApiService.getEvent()
         .then(response =>{
           let dataEvents = response.data;
-          console.log(dataEvents);
-          console.log(response.data.results);
           this.events = this.buildEventListFromResponsiveData(dataEvents);
-          console.log(this.events);
         })
         .catch(e =>{
           this.errors.push(e);

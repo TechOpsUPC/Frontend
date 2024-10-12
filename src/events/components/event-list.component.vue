@@ -11,7 +11,7 @@ export default {
     }
   },
   created(){
-    console.log(this.eventList)
+
   }
 
 }
