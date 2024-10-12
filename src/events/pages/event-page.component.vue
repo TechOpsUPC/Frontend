@@ -1,32 +1,26 @@
 ﻿<script>
 
 
+import {EventApiService} from "../services/event-api.service.js";
+
 export default {
   name: "EventPage",
   components: {},
   data() {
     return {
-      events: [
-        {
-          eventId: "65",
-          contentId: "45",
-          title: "Event for Call me movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-05-05",
-          address: "av.primavera 123",
-          creatorId: "2"
-        },
-        {
-          eventId: "456",
-          contentId: "98",
-          title: "Event for Impossile movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-02-01",
-          address: "av.primavera 321",
-          creatorId: "654"
-        }
-      ]
+      event:{},
+      eventApiService: new EventApiService(),
     }
+  },
+  methods: {
+
+  },
+  created(){
+    this.eventApiService.getEventbyId(this.$route.params.id)
+        .then((response)=>{
+          this.event=response.data;
+          console.log(this.event)
+        })
   }
 }
 </script>

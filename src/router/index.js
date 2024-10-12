@@ -29,7 +29,7 @@ const router = createRouter({
                 {path: '/home', component: HomeComponent, meta: {title: 'Home'}},
                 {path: '/explorer', component: ExplorarComponent, meta: {title: 'Explorar'}},
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
-                {path: '/event', component: EventPage, meta: {title: 'Evento'}}
+                {path: '/event/:id', component: EventPage, meta: {title: 'Evento'}}
             ]
         },
                 //{path: '/list', component: ListasComponent, meta: {title: 'Listas'}},
