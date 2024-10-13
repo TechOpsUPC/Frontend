@@ -33,10 +33,8 @@ export default {
     this.eventApiService.getEventbyId(this.$route.params.id)
         .then((response)=>{
           let Dataevent = response.data;
-          this.event=this.buildEventFromResponsiveData(Dataevent);
-          console.log(response.data)
-          console.log(Dataevent)
-          console.log(this.event)
+          this.event= Dataevent[0];
+          console.log(this.event);
 
         })
   }
