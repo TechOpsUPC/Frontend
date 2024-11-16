@@ -66,12 +66,12 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class ="texto">
     <h1>Eventos</h1>
     <p>Para ti</p>
   </div>
 
-  <div>
+
     <!-- Barra de búsqueda
      <input
         type="text"
@@ -80,11 +80,8 @@ export default {
         @input="filterItems"
     />
     -->
-
-
-
     <div >
-      <pv-icon-field style="margin-left: 84%; ">
+      <pv-icon-field style="margin-left: 80%; ">
         <pv-input-icon class="pi pi-search" />
         <pv-input-text  placeholder="Search" />
       </pv-icon-field>
@@ -104,20 +101,6 @@ export default {
       </div>
     </div>
 
-    <div class="scroll-panel">
-      <div class="content">
-
-        <div id="list">
-          <event-list :event-list="events"></event-list>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-  </div>
 </template>
 
 <style scoped>
@@ -135,11 +118,12 @@ export default {
 }
 
 .scroll-panel {
-  width: fit-content;
-  height: 778px;
+
+  width: 100%;
+  max-height: 80vh; /* Limita la altura al 80% de la ventana */
   overflow-y: auto; /* Activa el scroll vertical */
-  border: 1px solid #ccc;
-  padding: 10px;
+  padding: 20px; /* Reduce el padding para mejor adaptación */
+  box-sizing: border-box; /* Incluye el padding en las dimensiones */
 }
 
 /* Estilos del Scrollbar */
@@ -163,7 +147,16 @@ export default {
 }
 
 .content {
-  height: 1000px; /* Asegura que el contenido sea lo suficientemente grande para que aparezca el scroll */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px;
+
 }
 
+.texto{
+  margin-left: 3%;
+  color: #333;
+}
 </style>
