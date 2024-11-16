@@ -1,91 +1,117 @@
 ﻿<script>
 
 
+import {EventApiService} from "../services/event-api.service.js";
+import EventInfo from "../components/event-info.component.vue";
+import {EventEntity} from "../model/event/event.entity.js";
+
 export default {
   name: "EventPage",
-  components: {},
+  components: {EventInfo},
   data() {
     return {
-      events: [
-        {
-          eventId: "65",
-          contentId: "45",
-          title: "Event for Call me movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-05-05",
-          address: "av.primavera 123",
-          creatorId: "2"
-        },
-        {
-          eventId: "456",
-          contentId: "98",
-          title: "Event for Impossile movie",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ullamcorper nisl augue, vitae tincidunt sapien venenatis ut. Aenean dapibus sit.",
-          date: "2024-02-01",
-          address: "av.primavera 321",
-          creatorId: "654"
-        }
-      ]
+      event:[],
+      eventApiService: new EventApiService(),
     }
+  },
+  methods: {
+    buildEventFromResponsiveData(events){
+      return events.map(event =>
+          new EventEntity(
+              event.eventId,
+              event.contentId,
+              event.title,
+              event.description,
+              event.date,
+              event.address,
+              event.creatorId,
+          )
+      )
+    }
+  },
+  created(){
+    this.eventApiService.getEventbyId(this.$route.params.id)
+        .then((response)=>{
+          let Dataevent = response.data;
+          this.event= Dataevent[0];
+          console.log(this.event);
+
+        })
   }
 }
 </script>
 
 <template>
   <router-link to="/events">
-    <pv-button icon="pi pi-arrow-left" style="background-color: transparent; color: black; border-color: transparent; "></pv-button>
+    <pv-button
+        icon="pi pi-arrow-left"
+        style="background-color: transparent; color: black; border-color: transparent;">
+    </pv-button>
   </router-link>
+
   <div class="movie-details">
-    <pv-card style="width: 30rem;">
-      <template #header>
-        <img alt="Movie Poster" src="https://img.freepik.com/vector-gratis/cartel-realista-cine-cubo-iluminado-bebida-palomitas-maiz-entradas-carrete-gafas-3d-sobre-fondo-azul-ilustracion-vector-cintas_1284-77070.jpg" />
-      </template>
+    <event-info :event-info="this.event"></event-info>
 
-      <template #title>
-        Festival de Películas
-      </template>
-
-      <template #subtitle>
-        Transmitiendo: "Movie Title"
-      </template>
-
-      <template #content>
-        <p>
-          Body text for your whole article or post. We’ll put in some lorem ipsum to show how a filled-out page might look.
-        </p>
-        <p>Lugar: Av Primavera 123</p>
-        <p>Fecha: 12-10-24</p>
-        <p>Hora: 18:00 PM</p>
-        <p>Promocionado por: creatorName</p>
-      </template>
-
-      <template #footer>
-        <pv-button label="Asistir" class="p-button-rounded p-button-secondary" />
-      </template>
-    </pv-card>
+    <!-- Contenedor del botón con clase "button-container" -->
+    <div class="button-container">
+      <pv-button
+          label="Asistir"
+          class="p-button-rounded"
+          icon="pi pi-calendar-plus" />
+    </div>
   </div>
-
 </template>
 
 <style scoped>
-.details-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
 .movie-details {
-  text-align: left;
-  margin-left: 10px;
-  justify-content: center;
-  align-items: center;
   display: flex;
-
-
+  flex-direction: column; /* Para alinear contenido verticalmente */
+  align-items: center; /* Centrar contenido horizontalmente */
+  margin: 10px;
 }
 
-.movie-details img {
-  max-width: 100%;
+/* Estilo del botón */
+.button-container {
+  margin-top: 20px; /* Espaciado por defecto */
+  display: flex;
+  justify-content: center;
+}
+
+/* Botón personalizado */
+.p-button-rounded {
+  background-color: #8D2A34;
+  border-color: #8D2A34;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover en el botón */
+.p-button-rounded:hover {
+  background-color: #a53945;
+  transform: scale(1.05);
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .button-container {
+    margin-top: 10px; /* Reducir espacio en pantallas más pequeñas */
+  }
+
+  .p-button-rounded {
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+    padding: 8px 16px; /* Ajustar padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    margin-top: 5px; /* Espaciado aún más reducido */
+  }
+
+  .p-button-rounded {
+    font-size: 0.8rem; /* Tamaño de fuente más pequeño */
+    padding: 6px 12px; /* Más compacto */
+  }
 }
 </style>

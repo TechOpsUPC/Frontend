@@ -42,8 +42,10 @@ const router = createRouter({
                 {path:'/list', component: ListView, meta: {title: 'Listas'}},
 
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
+                {path: '/event/:id', component: EventPage, meta: {title: 'Evento'}}
                 {path: '/event', component: EventPage, meta: {title: 'Evento'}},
                 { path: '/:pathMatch(.*)*', redirect: '/login' },
+
 
             ]
         },

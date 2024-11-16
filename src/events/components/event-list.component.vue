@@ -9,11 +9,7 @@ export default {
       type:Array,
       required: true
     }
-  },
-  created(){
-    console.log(this.eventList)
   }
-
 }
 
 </script>

@@ -10,7 +10,9 @@ export class EventApiService{
         return http.get('/events');
     }
 
-
+    getEventbyId(id){
+        return http.get(`/events?eventId=${id}`);
+    }
 
 
 }
