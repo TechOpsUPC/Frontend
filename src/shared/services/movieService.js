@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'https://my-json-server.typicode.com/RaulQuispe/pruebaFakeAPI',
+    baseURL: 'https://zenflicks-fake-api.onrender.com/api/v1',
     withCredentials: false,
     headers: {
         Accept: 'application/json',

@@ -14,8 +14,8 @@ import AuthLayoutComponent from "../login/pages/auth-layout.component.vue";
 */
 
 
-import AvailableContent from '../Explorer/pages/available-content.component.vue';
-import RecentContent from '../Explorer/pages/recent-content.component.vue';
+import AvailableContent from '../explorer/pages/available-content.component.vue';
+import RecentContent from '../explorer/pages/recent-content.component.vue';
 
 
 import AuthLayoutComponent from "../users/pages/auth-layout.component.vue";
@@ -42,8 +42,10 @@ const router = createRouter({
                 {path:'/list', component: ListView, meta: {title: 'Listas'}},
 
                 {path: '/events', component: EventsComponent, meta: {title: 'Eventos'}},
+                {path: '/event/:id', component: EventPage, meta: {title: 'Evento'}},
                 {path: '/event', component: EventPage, meta: {title: 'Evento'}},
                 { path: '/:pathMatch(.*)*', redirect: '/login' },
+
 
             ]
         },
