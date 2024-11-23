@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <pv-splitter layout="horizontal"  style="height: 100vh">
+  <pv-splitter layout="horizontal">
     <pv-splitter-panel :size="20" :disabled="true" class="left-side" >
 
       <div class="sidebar">
