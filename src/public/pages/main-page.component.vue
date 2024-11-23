@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <pv-splitter layout="horizontal"  style="height: 100vh">
+  <pv-splitter layout="horizontal">
     <pv-splitter-panel :size="20" :disabled="true" class="left-side" >
 
       <div class="sidebar">
@@ -41,12 +41,18 @@ export default {
                    @mouseleave="toggleExplorar(false)"
                    class="sidebar-button" label="Explorar" icon="pi pi-search">
           <ul v-if="explorarExpanded">
-            <pv-button class="sidebar-button" >
-              <router-link to="/explorar/contenido-disponible">Contenido disponible</router-link>
-            </pv-button>
-            <pv-button class="sidebar-button">
-              <router-link to="/explorar/contenido-reciente">Contenido reciente</router-link>
-            </pv-button>
+
+              <router-link to="/explorar/contenido-disponible">
+                <pv-button class="sidebar-button" label="Contenido disponible">
+
+                </pv-button>
+              </router-link>
+
+
+              <router-link to="/explorar/contenido-reciente">
+                <pv-button class="sidebar-button" label="Contenido reciente" />
+              </router-link>
+
           </ul>
         </pv-button>
 
@@ -54,12 +60,16 @@ export default {
                    @mouseleave="toggleListas(false)"
                    class="sidebar-button" label="Listas" icon="pi pi-list">
           <ul v-if="listasExpanded">
-            <pv-button class="sidebar-button" >
-              <router-link to="/list">Favoritos</router-link>
-            </pv-button>
-            <pv-button class="sidebar-button" >
-              <router-link to="/list">Ver más tarde</router-link>
-            </pv-button>
+
+              <router-link to="/list">
+                <pv-button class="sidebar-button" label="Favoritos"/>
+              </router-link>
+
+
+              <router-link to="/list">
+                <pv-button class="sidebar-button" label="Ver más tarde"/>
+              </router-link>
+
           </ul>
         </pv-button>
 

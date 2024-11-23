@@ -1,7 +1,9 @@
 <script>
 import movieService from '../../shared/services/movieService.js';
+import EventList from "../../events/components/event-list.component.vue";
 
 export default {
+  components: {EventList},
   data() {
     return {
       movies: [],
@@ -64,20 +66,6 @@ export default {
     </div>
 
     <h2 class="results-subtitle">Resultados:</h2>
-
-    <div v-for="movie in filteredMovies" :key="movie.id" class="card">
-      <img :src="movie.image" alt="movie.title" />
-      <div class="movie-details">
-        <div class="title-row">
-          <h2>{{ movie.title }}</h2>
-          <span class="by">by: {{ movie.creator }}</span>
-        </div>
-        <p>{{ movie.description }}</p>
-      </div>
-      <button class="btn-left" @click="markAsWatched(movie.id)">Marcar como visto</button>
-      <button class="btn-right" @click="addToList(movie.id)">Añadir a lista</button>
-    </div>
-
     <div class="pagination">
       <button @click="previousPage" :disabled="currentPage === 1">← Previous</button>
       <span v-for="page in totalPages" :key="page">
@@ -85,6 +73,25 @@ export default {
       </span>
       <button @click="nextPage" :disabled="currentPage === totalPages">Next →</button>
     </div>
+    <div class="scroll-panel">
+      <div class="content">
+        <div v-for="movie in filteredMovies" :key="movie.id" class="card">
+          <img :src="movie.image" alt="movie.title" />
+          <div class="movie-details">
+            <div class="title-row">
+              <h2>{{ movie.title }}</h2>
+              <span class="by">by: {{ movie.creator }}</span>
+            </div>
+            <p>{{ movie.description }}</p>
+          </div>
+          <button class="btn-left" @click="markAsWatched(movie.id)">Marcar como visto</button>
+          <button class="btn-right" @click="addToList(movie.id)">Añadir a lista</button>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -101,6 +108,36 @@ export default {
 .results-subtitle {
   color: grey;
   margin-bottom: 10px;
+}
+
+.scroll-panel {
+
+  width: 100%;
+  max-height: 80vh; /* Limita la altura al 80% de la ventana */
+  overflow-y: auto; /* Activa el scroll vertical */
+  padding: 20px; /* Reduce el padding para mejor adaptación */
+  box-sizing: border-box; /* Incluye el padding en las dimensiones */
+  border-radius: 5px;
+}
+
+/* Estilos del Scrollbar */
+.scroll-panel::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+}
+
+.scroll-panel::-webkit-scrollbar-thumb {
+  background: #7e7c7c;
+  border: solid 3px #e6e6e6;
+  border-radius: 7px;
+}
+
+.scroll-panel::-webkit-scrollbar-track {
+  background: #e6e6e6;
+  border-left: 2px solid #dadada;
+}
+
+.scroll-panel::-webkit-scrollbar-thumb:hover {
+  background-color: black; /* Color del thumb cuando está en hover */
 }
 
 .card {
